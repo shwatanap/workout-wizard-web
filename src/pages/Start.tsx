@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
 
-function Start() {
+const Start = () => {
   return (
     <div>
       <Header />
@@ -10,6 +10,6 @@ function Start() {
       <Footer />
     </div>
   );
-}
+};
 
 export default Start;
