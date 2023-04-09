@@ -3,9 +3,3 @@ export interface Procedure {
     img: string;
     explain: string;
 };
-
-export interface Button {
-    text: string;
-    textcolor: string;
-    bgcolor: string;
-};
