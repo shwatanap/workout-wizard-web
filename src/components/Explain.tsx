@@ -1,4 +1,4 @@
-import ProcedureBox from "@/parts/ProcedureBox";
+import ProcedureBox from "@/parts/start/ProcedureBox";
 import { dummyProcedureData } from "@/datas/dummyProcedureData";
 import { Procedure } from "@/types/workout";
 
