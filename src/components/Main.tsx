@@ -15,7 +15,7 @@ const Main = () => {
             <br />
             あなたを三日坊主とは誰にも言わせない。
           </div>
-          <BaseButton text="ログイン" textcolor="black" bgcolor="yellow" />
+          <BaseButton text="ログイン" textColor="black" backgroundColor="yellow" />
           <div className="text-white text-center mt-[20px]">
             <span className="border-b">新規登録</span>
           </div>
