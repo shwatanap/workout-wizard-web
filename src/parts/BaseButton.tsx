@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Button } from "@/types/workout";
-
 type Props = {
-    button: Button;
+    text: string;
+    textcolor: string;
+    bgcolor: string;
 }
 
-const BaseButton: React.FC<Props> = ({ button }) => {
+const BaseButton: React.FC<Props> = ({ text, textcolor, bgcolor }) => {
     return (
         <div className="text-center">
-            <button className={"text-" + button.textcolor + " font-bold w-[100px] h-[40px] mt-[50px] bg-" + button.bgcolor + " rounded-lg"}>{button.text}</button>
+            <button className={`text-${textcolor} font-bold w-[100px] h-[40px] mt-[50px] bg-${bgcolor} rounded-lg`}>{text}</button>
         </div>
     );
 };
