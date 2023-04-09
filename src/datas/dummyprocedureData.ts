@@ -1,6 +1,6 @@
 import { Procedure } from '@/types/workout';
 
-export const dummyprocedureData: Array<Procedure> = [
+export const dummyProcedureData: Array<Procedure> = [
     {
         section: '①条件指定',
         img: '/img/1.png',
