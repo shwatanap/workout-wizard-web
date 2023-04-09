@@ -1,4 +1,3 @@
-import { loginbuttonData } from "@/datas/loginbuttonData";
 import BaseButton from '@/parts/BaseButton';
 import Explain from "./Explain";
 
@@ -18,7 +17,9 @@ const Main = () => {
                         <span className="text-yellow font-bold">Workout Wizard</span>は筋トレサポートサービスです。<br />あなたを三日坊主とは誰にも言わせない。
                     </div>
                     <BaseButton
-                        button={loginbuttonData}
+                        text='ログイン'
+                        textcolor='black'
+                        bgcolor='yellow'
                     />
                     <div className='text-white text-center mt-[20px]'><span className='border-b'>新規登録</span></div>
 
