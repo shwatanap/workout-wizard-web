@@ -17,6 +17,7 @@ const InputTemplate: React.FC<Props> = ({ part, time, intensity }) => {
         time: time,
         intensity: intensity,
       })
+      //　TODO responseの処理
       .then((response) => {})
       .catch((error) => {
         console.log(error);
@@ -26,7 +27,6 @@ const InputTemplate: React.FC<Props> = ({ part, time, intensity }) => {
   return (
     <div>
       <Link to="/output">
-        {/* <BaseButton text="トレーニング開始" textColor="black" backgroundColor="yellow" /> */}
         <button onClick={createNewTraining}>トレーニング開始</button>
       </Link>
     </div>
