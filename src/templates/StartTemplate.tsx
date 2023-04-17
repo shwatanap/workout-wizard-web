@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Explain from "@/components/Explain";
@@ -20,6 +22,11 @@ const StartTemplate = () => {
         <BaseButton text="ログイン" textColor="black" backgroundColor="yellow" />
         <div className="text-white text-center mt-[20px]">
           <span className="border-b">新規登録</span>
+        </div>
+        <div className="text-white text-center mt-[20px]">
+          <Link to="/input">
+            <button>テスト用</button>
+          </Link>
         </div>
       </div>
       <Explain />
