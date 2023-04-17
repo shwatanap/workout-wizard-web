@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import InputTemplate from "@/templates/InputTemplate";
 
 const InputPage = () => {
+  // ここで定義すべき？
   const [part, setPart] = useState("");
   const [time, setTime] = useState("");
   const [intensity, setIntensity] = useState("normal");
@@ -47,7 +48,7 @@ const InputPage = () => {
           </select>
         </label>
       </form>
-      <InputTemplate />
+      <InputTemplate part={part} time={time} intensity={intensity} />
     </div>
   );
 };
