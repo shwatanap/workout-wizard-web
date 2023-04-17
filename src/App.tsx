@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "@/App.css";
 
 import Start from "@/pages/Start";
-import InputPage from "./pages/InputPage";
-import OutputPage from "./pages/OutputPage";
+import InputPage from "@/pages/InputPage";
+import OutputPage from "@/pages/OutputPage";
 
 function App() {
   return (
