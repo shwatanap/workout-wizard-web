@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import NextButton from "@/parts/input/NextButton";
+
 type Props = {
   handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -45,11 +47,7 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
           </select>
         </label>
       </form>
-      <Link to="/output">
-        <button type="submit" onClick={handleCreateMenu}>
-          トレーニング開始
-        </button>
-      </Link>
+      <NextButton path="/output" name="トレーニング開始" handleCreateMenu={handleCreateMenu} />
     </div>
   );
 };
