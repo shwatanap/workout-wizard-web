@@ -1,15 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { InputInfo } from "@/types/input";
-
 type Props = {
-  // part: string;
-  // time: string;
-  // intensity: string;
   handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  handleCreateMenu: (e: any) => void;
+  handleCreateMenu: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
 const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreateMenu }) => {
@@ -18,14 +13,6 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
       <form>
         <label>
           部位
-          {/* <select name="part" value={part} onChange={handleSelect}> */}
-          {/* <select name="part" onChange={handleSelect}>
-            <option value="胸筋">胸筋</option>
-            <option value="肩">肩</option>
-            <option value="上半身">上半身</option>
-            <option value="足">下半身</option>
-            <option value="全身">全身</option>
-          </select> */}
           <input type="radio" name="part" value="pectoral" onChange={handleInput} />
           胸筋
           <input type="radio" name="part" value="shoulder" onChange={handleInput} />
@@ -59,7 +46,9 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
         </label>
       </form>
       <Link to="/output">
-        <button onClick={handleCreateMenu}>トレーニング開始</button>
+        <button type="submit" onClick={handleCreateMenu}>
+          トレーニング開始
+        </button>
       </Link>
     </div>
   );
