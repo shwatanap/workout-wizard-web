@@ -1,11 +1,15 @@
+import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+
 const Header = () => {
   return (
-    <div className="bg-black h-[70px] sticky top-0 z-50">
-      <div className="text-sm font-bold text-yellow pl-[15px] pt-[15px]">
-        Workout <br />
-        Wizard
-      </div>
-    </div>
+    <AppBar position="sticky">
+      <Toolbar sx={{ bgcolor: "#333333" }}>
+        <Box sx={{ color: "#ffff00" }}>
+          <Typography sx={{ pl: "10px", pt: "10px" }}>Workout</Typography>
+          <Typography sx={{ pl: "10px", pb: "10px" }}>Wizard</Typography>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 
