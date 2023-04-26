@@ -69,7 +69,12 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
 
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <Typography variant="h6" id="time-slider" style={{ color: "white" }} gutterBottom>
+          <Typography
+            variant="h6"
+            id="time-slider"
+            style={{ marginTop: "20%", color: "white" }}
+            gutterBottom
+          >
             トレーニング時間
           </Typography>
         </Grid>
@@ -83,13 +88,21 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
             aria-label="time-slider"
             step={5}
             defaultValue={20}
-            marks={times}
+            marks={times.map((time) => ({
+              value: time.value,
+              label: <Typography sx={{ color: "white" }}>{time.label}</Typography>,
+            }))}
           />
         </Grid>
       </Grid>
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <Typography variant="h6" id="intensity-slider" style={{ color: "white" }} gutterBottom>
+          <Typography
+            variant="h6"
+            id="intensity-slider"
+            style={{ marginTop: "20%", color: "white" }}
+            gutterBottom
+          >
             トレーニング強度
           </Typography>
         </Grid>
@@ -103,7 +116,10 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
             aria-label="intensity-slider"
             step={1}
             defaultValue={1}
-            marks={intensitys}
+            marks={intensitys.map((intensity) => ({
+              value: intensity.value,
+              label: <Typography sx={{ color: "white" }}>{intensity.label}</Typography>,
+            }))}
           />
         </Grid>
       </Grid>
