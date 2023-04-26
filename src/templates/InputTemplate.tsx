@@ -36,7 +36,14 @@ const parts = ["胸筋", "肩", "上半身", "下半身", "全身"];
 
 const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreateMenu }) => {
   return (
-    <Container>
+    <Container sx={{ backgroundColor: "#333333" }}>
+      <Typography
+        variant="h6"
+        style={{ color: "white", marginTop: "10px", textAlign: "center" }}
+        gutterBottom
+      >
+        トレーニングメニュー
+      </Typography>
       {/* <ButtonGroup variant="contained" aria-label="outlined primary button group">
         <Grid container spacing={1}>
           {parts.map((option) => (
@@ -62,13 +69,13 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
 
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <Typography variant="h6" id="time-slider" gutterBottom>
+          <Typography variant="h6" id="time-slider" style={{ color: "white" }} gutterBottom>
             トレーニング時間
           </Typography>
         </Grid>
         <Grid item>
           <Slider
-            sx={{ width: 250 }}
+            sx={{ width: 250, color: "#ffff00" }}
             min={10}
             max={30}
             size="medium"
@@ -82,13 +89,13 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
       </Grid>
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <Typography variant="h6" id="intensity-slider" gutterBottom>
+          <Typography variant="h6" id="intensity-slider" style={{ color: "white" }} gutterBottom>
             トレーニング強度
           </Typography>
         </Grid>
         <Grid>
           <Slider
-            sx={{ width: 250 }}
+            sx={{ width: 250, color: "#ffff00" }}
             min={0}
             max={2}
             size="medium"
