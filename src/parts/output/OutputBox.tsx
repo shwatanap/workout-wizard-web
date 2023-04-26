@@ -7,13 +7,13 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Typography from "@mui/material/Typography";
 
-import { Output } from "@/types/workout";
+import { Workout } from "@/types/workout";
 
 type Props = {
-  outputlist: Output;
+  workout: Workout;
 };
 
-const OutputBox: React.FC<Props> = ({ outputlist }) => {
+const OutputBox: React.FC<Props> = ({ workout }) => {
   return (
     <TimelineItem>
       <TimelineSeparator>
@@ -22,10 +22,10 @@ const OutputBox: React.FC<Props> = ({ outputlist }) => {
       </TimelineSeparator>
       <TimelineContent>
         <Typography variant="h6" component="span">
-          {outputlist.label}
+          {workout.label}
         </Typography>
         <Typography sx={{ marginTop: "10px", marginBottom: "50px" }}>
-          {outputlist.description}
+          {workout.description}
         </Typography>
       </TimelineContent>
     </TimelineItem>
