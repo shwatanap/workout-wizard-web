@@ -1,6 +1,6 @@
-import { Output } from "@/types/workout";
+import { Workout } from "@/types/workout";
 
-export const dummyOutputlistData: Array<Output> = [
+export const dummyOutputlistData: Array<Workout> = [
   {
     label: "プッシュアップ",
     description: `プッシュアップは腕を鍛えるための基本的なエクササイズの一つです。床に仰向けになり、腕を肩幅に広げて手のひらを床につけます。腕をまっすぐに伸ばし、ゆっくりと体を下げてから上げます。これを10回から20回のセットを2~3セット行うとよいでしょう。`,
