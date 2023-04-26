@@ -4,7 +4,7 @@ export interface Procedure {
   explain: string;
 }
 
-export interface Output {
+export interface Workout {
   label: string;
   description: string;
 }
