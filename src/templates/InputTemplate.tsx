@@ -11,12 +11,14 @@ import { FormLabel } from "@mui/material";
 import { Container, Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Slider } from "@mui/material";
+import { styled } from "@mui/material";
+import { InputBase } from "@mui/material";
 
 import NextButton from "@/parts/input/NextButton";
 // import { InputInfo } from "@/types/input";
 
 type Props = {
-  handleInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSlider: (e: Event, newEvent: number | number[]) => void;
   handleSelect: (e: SelectChangeEvent) => void;
   handleCreateMenu: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
 };
@@ -43,7 +45,14 @@ const intensitys = [
   { value: 2, label: "高い" },
 ];
 
-const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreateMenu }) => {
+const SelectStyle = styled(InputBase)(({ theme }) => ({
+  "& .MuiInputBase-input": {
+    color: "white",
+    backgroundColor: "#9e9e9e",
+  },
+}));
+
+const InputTemplate: React.FC<Props> = ({ handleSlider, handleSelect, handleCreateMenu }) => {
   return (
     <Box sx={{ backgroundColor: "#333333" }}>
       <Container maxWidth="xs">
@@ -57,20 +66,27 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
         <Typography
           variant="h6"
           id="parts-slider"
-          style={{ marginTop: "20%", color: "white" }}
+          style={{ marginTop: "10%", color: "white", textAlign: "center" }}
           gutterBottom
         >
           トレーニング部位
         </Typography>
-        <FormControl fullWidth>
-          <InputLabel id="part-select-label">部位</InputLabel>
-          <Select labelId="part-select-label" id="part-select" label="part" onChange={handleSelect}>
-            {parts.map((part) => (
-              <MenuItem value={part.value}>{part.label}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-
+        <Grid container direction="column" alignItems="center" textAlign="center">
+          <FormControl sx={{ width: 250 }}>
+            <Select
+              // sx={{ paddingLeft: "-50px" }}
+              labelId="part-select-label"
+              id="part-select"
+              label="part"
+              onChange={handleSelect}
+              input={<SelectStyle />}
+            >
+              {parts.map((part) => (
+                <MenuItem value={part.value}>{part.label}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
         <Grid container direction="column" alignItems="center">
           <Grid item>
             <Typography
@@ -92,10 +108,12 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
               aria-label="time-slider"
               step={5}
               defaultValue={20}
+              name="time"
               marks={times.map((time) => ({
                 value: time.value,
                 label: <Typography sx={{ color: "white" }}>{time.label}</Typography>,
               }))}
+              onChange={handleSlider}
             />
           </Grid>
         </Grid>
@@ -112,7 +130,7 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
           </Grid>
           <Grid>
             <Slider
-              sx={{ width: 250, color: "#ffff00" }}
+              sx={{ width: 250, color: "#ffea00" }}
               min={0}
               max={2}
               size="medium"
@@ -120,10 +138,12 @@ const InputTemplate: React.FC<Props> = ({ handleInput, handleSelect, handleCreat
               aria-label="intensity-slider"
               step={1}
               defaultValue={1}
+              name="intensity"
               marks={intensitys.map((intensity) => ({
                 value: intensity.value,
                 label: <Typography sx={{ color: "white" }}>{intensity.label}</Typography>,
               }))}
+              onChange={handleSlider}
             />
           </Grid>
         </Grid>
