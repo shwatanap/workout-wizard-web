@@ -18,9 +18,10 @@ import NextButton from "@/parts/input/NextButton";
 // import { InputInfo } from "@/types/input";
 
 type Props = {
-  handleSlider: (e: Event, newEvent: number | number[]) => void;
-  handleSelect: (e: SelectChangeEvent) => void;
-  handleCreateMenu: (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
+  handlePart: (e: SelectChangeEvent) => void;
+  handleTime: (e: Event, newEvent: number | number[]) => void;
+  handleIntensity: (e: Event, newEvent: number | number[]) => void;
+  handleCreateMenu: (e: React.FormEvent<HTMLButtonElement>) => void;
 };
 
 const parts = [
@@ -52,7 +53,12 @@ const SelectStyle = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const InputTemplate: React.FC<Props> = ({ handleSlider, handleSelect, handleCreateMenu }) => {
+const InputTemplate: React.FC<Props> = ({
+  handlePart,
+  handleTime,
+  handleIntensity,
+  handleCreateMenu,
+}) => {
   return (
     <Box sx={{ backgroundColor: "#333333" }}>
       <Container maxWidth="xs">
@@ -78,7 +84,7 @@ const InputTemplate: React.FC<Props> = ({ handleSlider, handleSelect, handleCrea
               labelId="part-select-label"
               id="part-select"
               label="part"
-              onChange={handleSelect}
+              onChange={handlePart}
               input={<SelectStyle />}
             >
               {parts.map((part) => (
@@ -113,7 +119,7 @@ const InputTemplate: React.FC<Props> = ({ handleSlider, handleSelect, handleCrea
                 value: time.value,
                 label: <Typography sx={{ color: "white" }}>{time.label}</Typography>,
               }))}
-              onChange={handleSlider}
+              onChange={handleTime}
             />
           </Grid>
         </Grid>
@@ -143,7 +149,7 @@ const InputTemplate: React.FC<Props> = ({ handleSlider, handleSelect, handleCrea
                 value: intensity.value,
                 label: <Typography sx={{ color: "white" }}>{intensity.label}</Typography>,
               }))}
-              onChange={handleSlider}
+              onChange={handleIntensity}
             />
           </Grid>
         </Grid>
