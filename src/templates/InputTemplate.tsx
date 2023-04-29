@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Radio, RadioGroup, SelectChangeEvent } from "@mui/material";
+import { SelectChangeEvent } from "@mui/material";
 import { Box, ButtonGroup, Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
@@ -88,7 +88,9 @@ const InputTemplate: React.FC<Props> = ({
               input={<SelectStyle />}
             >
               {parts.map((part) => (
-                <MenuItem value={part.value}>{part.label}</MenuItem>
+                <MenuItem key={part.value} value={part.value}>
+                  {part.label}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
