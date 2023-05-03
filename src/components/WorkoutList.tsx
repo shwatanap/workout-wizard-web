@@ -1,12 +1,10 @@
-import * as React from "react";
-
 import Timeline from "@mui/lab/Timeline";
 
-import { dummyOutputlistData } from "@/datas/dummyWorkoutlistData";
+import { dummyWorkoutListData } from "@/datas/dummyWorkoutListData";
 import { Workout } from "@/types/workout";
-import OutputBox from "@/parts/output/OutputBox";
+import WorkoutParts from "@/parts/output/WorkoutParts";
 
-const OutputList = () => {
+const WorkoutList = () => {
   return (
     <Timeline
       sx={{
@@ -17,11 +15,11 @@ const OutputList = () => {
         paddingBottom: "50px",
       }}
     >
-      {dummyOutputlistData.map((item: Workout) => {
-        return <OutputBox workout={item} />;
+      {dummyWorkoutListData.map((item: Workout, index) => {
+        return <WorkoutParts key={index} workout={item} />;
       })}
     </Timeline>
   );
 };
 
-export default OutputList;
+export default WorkoutList;

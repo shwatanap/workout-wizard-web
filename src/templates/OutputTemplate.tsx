@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 import Header from "@/components/Header";
-import OutputList from "@/components/OutputList";
+import WorkoutList from "@/components/WorkoutList";
 
 const OutputTemplate = () => {
   return (
@@ -13,7 +13,7 @@ const OutputTemplate = () => {
         </Typography>
       </Box>
 
-      <OutputList />
+      <WorkoutList />
     </div>
   );
 };
