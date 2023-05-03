@@ -13,8 +13,8 @@ const Explain = () => {
         </Typography>
       </Box>
 
-      {dummyProcedureData.map((item: Procedure) => {
-        return <ProcedureBox procedure={item} />;
+      {dummyProcedureData.map((item: Procedure, index) => {
+        return <ProcedureBox key={index} procedure={item} />;
       })}
     </Box>
   );
