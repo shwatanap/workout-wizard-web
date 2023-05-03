@@ -3,3 +3,8 @@ export interface Procedure {
   img: string;
   explain: string;
 }
+
+export interface Workout {
+  label: string;
+  description: string;
+}

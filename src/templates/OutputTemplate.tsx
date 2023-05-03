@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { Box, Typography } from "@mui/material";
 
-import axios from "axios";
-import { error } from "console";
+import Header from "@/components/Header";
+import WorkoutList from "@/components/WorkoutList";
 
 const OutputTemplate = () => {
-  useEffect(() => {
-    axios
-      .post("", {})
-      .then((response) => {})
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+  return (
+    <div>
+      <Header />
+      <Box sx={{ bgcolor: "#333333", p: "30px", display: "flex", justifyContent: "center" }}>
+        <Typography variant="h4" sx={{ color: "white" }}>
+          Menu List
+        </Typography>
+      </Box>
 
-  return <div>OutputTemplate</div>;
+      <WorkoutList />
+    </div>
+  );
 };
 
 export default OutputTemplate;
