@@ -1,37 +1,46 @@
 import { Link } from "react-router-dom";
-
+import { Box, Typography, Button } from "@mui/material";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Explain from "@/components/Explain";
-import BaseButton from "@/parts/base/BaseButton";
 
 const StartTemplate = () => {
   return (
-    <div>
+    <Box>
       <Header />
-      <div className="bg-black h-[770px]">
-        <div className="pt-[80px] w-[300px] h-[300px] mx-auto">
+      <Box sx={{ bgcolor: "#333333", height: "770px" }}>
+        <Box sx={{ pt: "80px", width: "300px", height: "300px", mx: "auto" }}>
           <img src="/img/logo.png" alt="WorkoutWizardのロゴ" />
-        </div>
-        <div className="text-[16px] text-white w-[250px] pt-[100px] mx-auto">
-          <span className="text-yellow font-bold">Workout Wizard</span>
-          は筋トレサポートサービスです。
-          <br />
-          あなたを三日坊主とは誰にも言わせない。
-        </div>
-        <BaseButton text="ログイン" textColor="black" backgroundColor="yellow" />
-        <div className="text-white text-center mt-[20px]">
-          <span className="border-b">新規登録</span>
-        </div>
-        <div className="text-white text-center mt-[20px]">
+        </Box>
+        <Box sx={{ fontSize: "16px", color: "white", width: "250px", pt: "100px", mx: "auto" }}>
+          <Typography color={"white"}>
+            <Typography color={"#ffff00"} component="span" sx={{ fontWeight: "600" }}>
+              Workout Wizard
+            </Typography>
+            は筋トレサポートサービスです。
+          </Typography>
+          <Typography>あなたを三日坊主とは誰にも言わせない。</Typography>
+        </Box>
+
+        <Box sx={{ display: "flex", justifyContent: "center", mt: "30px" }}>
+          <Button sx={{ color: "#333333", bgcolor: "#ffff00" }}>ログイン</Button>
+        </Box>
+
+        <Box sx={{ mt: "20px", display: "flex", justifyContent: "center" }}>
+          <Typography sx={{ color: "white", borderBottom: "1px" }} component="span">
+            新規登録
+          </Typography>
+        </Box>
+
+        <Box sx={{ mt: "20px", display: "flex", justifyContent: "center" }}>
           <Link to="/input">
-            <button>テスト用</button>
+            <Button sx={{ color: "white" }}>テスト用</Button>
           </Link>
-        </div>
-      </div>
+        </Box>
+      </Box>
       <Explain />
       <Footer />
-    </div>
+    </Box>
   );
 };
 
