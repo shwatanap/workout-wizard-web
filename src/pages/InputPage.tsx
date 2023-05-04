@@ -2,11 +2,15 @@ import React, { useState } from "react";
 
 import InputTemplate from "@/templates/InputTemplate";
 import { SelectChangeEvent } from "@mui/material";
+import { postCreateNewMenu } from "@/api/menu";
+import { InputInfo } from "@/types/input";
+import { error } from "console";
 
 const InputPage = () => {
   const [part, setPart] = useState("");
   const [time, setTime] = useState(0);
   const [intensity, setIntensity] = useState("");
+  const [menu, setMenu] = useState<any | any>([]);
 
   const handlePart = (e: SelectChangeEvent) => {
     setPart(e.target.value);
@@ -29,14 +33,30 @@ const InputPage = () => {
     console.log(newEvent);
   };
 
-  // 入力のバリデーションチェック
-  // const handleCheckInput = () => {};
+  const CreateMenu = () => {
+    console.log("##################");
+    const input: InputInfo = {
+      part: part,
+      time: time,
+      intensity: intensity,
+    };
+    console.log(input);
+    postCreateNewMenu(input).then(
+      (res) => {
+        console.log(res);
+        setMenu(res);
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
+  };
 
-  const handleCreateMenu = (e: React.FormEvent<HTMLButtonElement>) => {
-    console.log("############");
+  const SendMenu = (e: React.FormEvent<HTMLButtonElement>) => {
     console.log("part : ", part);
     console.log("time : ", time);
     console.log("intensity : ", intensity);
+    console.log("menu : ", menu);
   };
 
   return (
@@ -45,7 +65,8 @@ const InputPage = () => {
         handlePart={handlePart}
         handleTime={handleTime}
         handleIntensity={handleIntensity}
-        handleCreateMenu={handleCreateMenu}
+        handleCreateMenu={CreateMenu}
+        handleSendMenu={SendMenu}
       />
     </div>
   );
