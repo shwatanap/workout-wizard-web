@@ -1,5 +1,5 @@
 export interface InputInfo {
   part: string;
-  time: string;
+  time: number;
   intensity: string;
 }
