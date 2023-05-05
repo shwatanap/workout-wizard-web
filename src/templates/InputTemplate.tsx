@@ -82,6 +82,7 @@ const InputTemplate: React.FC<Props> = ({
               labelId="part-select-label"
               id="part-select"
               label="part"
+              defaultValue="pectoral"
               onChange={handlePart}
               input={<SelectStyle />}
             >
