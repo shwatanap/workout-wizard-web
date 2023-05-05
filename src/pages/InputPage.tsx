@@ -4,12 +4,11 @@ import InputTemplate from "@/templates/InputTemplate";
 import { SelectChangeEvent } from "@mui/material";
 import { postCreateNewMenu } from "@/api/menu";
 import { InputInfo } from "@/types/input";
-import { error } from "console";
 
 const InputPage = () => {
-  const [part, setPart] = useState("");
-  const [time, setTime] = useState(0);
-  const [intensity, setIntensity] = useState("");
+  const [part, setPart] = useState("pectoral");
+  const [time, setTime] = useState(20);
+  const [intensity, setIntensity] = useState("nomale");
   const [menu, setMenu] = useState<any | any>([]);
 
   const handlePart = (e: SelectChangeEvent) => {
@@ -34,13 +33,11 @@ const InputPage = () => {
   };
 
   const CreateMenu = () => {
-    console.log("##################");
     const input: InputInfo = {
       part: part,
       time: time,
       intensity: intensity,
     };
-    console.log(input);
     postCreateNewMenu(input).then(
       (res) => {
         console.log(res);
