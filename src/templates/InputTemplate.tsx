@@ -21,7 +21,8 @@ type Props = {
   handlePart: (e: SelectChangeEvent) => void;
   handleTime: (e: Event, newEvent: number | number[]) => void;
   handleIntensity: (e: Event, newEvent: number | number[]) => void;
-  handleCreateMenu: (e: React.FormEvent<HTMLButtonElement>) => void;
+  handleCreateMenu: (e: any) => void;
+  handleSendMenu: (e: React.FormEvent<HTMLButtonElement>) => void;
 };
 
 const parts = [
@@ -58,6 +59,7 @@ const InputTemplate: React.FC<Props> = ({
   handleTime,
   handleIntensity,
   handleCreateMenu,
+  handleSendMenu,
 }) => {
   return (
     <Box sx={{ backgroundColor: "#333333" }}>
@@ -155,7 +157,12 @@ const InputTemplate: React.FC<Props> = ({
             />
           </Grid>
         </Grid>
-        <NextButton path="/output" name="トレーニング開始" handleCreateMenu={handleCreateMenu} />
+        <NextButton
+          path="/output"
+          name="トレーニング開始"
+          handleCreateMenu={handleCreateMenu}
+          handleSendeMenu={handleSendMenu}
+        />
       </Container>
     </Box>
   );
