@@ -1,13 +1,10 @@
 import React from "react";
 
 import { SelectChangeEvent } from "@mui/material";
-import { Box, ButtonGroup, Button } from "@mui/material";
-import { InputLabel } from "@mui/material";
+import { Box } from "@mui/material";
 import { Select } from "@mui/material";
 import { MenuItem } from "@mui/material";
-import { FormControlLabel } from "@mui/material";
 import { FormControl } from "@mui/material";
-import { FormLabel } from "@mui/material";
 import { Container, Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Slider } from "@mui/material";
@@ -15,7 +12,6 @@ import { styled } from "@mui/material";
 import { InputBase } from "@mui/material";
 
 import NextButton from "@/parts/input/NextButton";
-// import { InputInfo } from "@/types/input";
 
 type Props = {
   handlePart: (e: SelectChangeEvent) => void;
