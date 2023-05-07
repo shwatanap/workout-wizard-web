@@ -1,54 +1,70 @@
 import React, { useState } from "react";
 
 import InputTemplate from "@/templates/InputTemplate";
+import { SelectChangeEvent } from "@mui/material";
+import { postCreateNewMenu } from "@/api/menu";
+import { InputInfo } from "@/types/input";
 
 const InputPage = () => {
-  // ここで定義すべき？
-  const [part, setPart] = useState("");
-  const [time, setTime] = useState("");
-  const [intensity, setIntensity] = useState("normal");
+  const [part, setPart] = useState("pectoral");
+  const [time, setTime] = useState(20);
+  const [intensity, setIntensity] = useState("nomale");
+  const [menu, setMenu] = useState<any | any>([]);
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case "part":
-        setPart(value);
-        break;
-      case "time":
-        setTime(value);
-        break;
-      default:
-        break;
-    }
+  const handlePart = (e: SelectChangeEvent) => {
+    setPart(e.target.value);
+    console.log(e.target.value);
   };
 
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setIntensity(e.target.value);
+  const handleTime = (e: Event, newEvent: number | number[]) => {
+    setTime(newEvent as number);
+    console.log(newEvent);
+  };
+
+  const handleIntensity = (e: Event, newEvent: number | number[]) => {
+    if (newEvent === 0) {
+      setIntensity("low");
+    } else if (newEvent === 1) {
+      setIntensity("nomale");
+    } else {
+      setIntensity("high");
+    }
+    console.log(newEvent);
+  };
+
+  const CreateMenu = () => {
+    const input: InputInfo = {
+      part: part,
+      time: time,
+      intensity: intensity,
+    };
+    postCreateNewMenu(input).then(
+      (res) => {
+        console.log(res);
+        setMenu(res);
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
+  };
+
+  const SendMenu = (e: React.FormEvent<HTMLButtonElement>) => {
+    console.log("part : ", part);
+    console.log("time : ", time);
+    console.log("intensity : ", intensity);
+    console.log("menu : ", menu);
   };
 
   return (
     <div>
-      <form>
-        <label>
-          部位
-          <input name="part" type="text" value={part} onChange={handleInput} />
-        </label>
-        <br />
-        <label>
-          時間
-          <input name="time" type="number" value={time} onChange={handleInput} />
-        </label>
-        <br />
-        <label>
-          強度
-          <select value={intensity} onChange={handleSelect}>
-            <option value="high">高い</option>
-            <option value="normal">普通</option>
-            <option value="low">低い</option>
-          </select>
-        </label>
-      </form>
-      <InputTemplate part={part} time={time} intensity={intensity} />
+      <InputTemplate
+        handlePart={handlePart}
+        handleTime={handleTime}
+        handleIntensity={handleIntensity}
+        handleCreateMenu={CreateMenu}
+        handleSendMenu={SendMenu}
+      />
     </div>
   );
 };
