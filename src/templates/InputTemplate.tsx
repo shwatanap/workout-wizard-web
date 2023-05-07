@@ -156,7 +156,7 @@ const InputTemplate: React.FC<Props> = ({
         </Grid>
         <NextButton
           path="/output"
-          name="トレーニング開始"
+          name="メニュー作成"
           handleCreateMenu={handleCreateMenu}
           handleSendeMenu={handleSendMenu}
         />
